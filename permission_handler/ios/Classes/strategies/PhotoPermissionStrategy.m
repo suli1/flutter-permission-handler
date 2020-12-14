@@ -31,6 +31,8 @@
 
 + (PermissionStatus)permissionStatus {
     PHAuthorizationStatus status = [PHPhotoLibrary authorizationStatus];
+    if (@available(iOS 14, *))
+        status = [PHPhotoLibrary authorizationStatusForAccessLevel:PHAccessLevelReadWrite];
 
     return [PhotoPermissionStrategy determinePermissionStatus:status];
 }
@@ -41,10 +43,10 @@
             return PermissionStatusNotDetermined;
         case PHAuthorizationStatusRestricted:
             return PermissionStatusRestricted;
-        case PHAuthorizationStatusDenied:
-            return PermissionStatusDenied;
         case PHAuthorizationStatusAuthorized:
             return PermissionStatusGranted;
+        default:// iOS14中<PHAuthorizationStatusLimited>当做<PHAuthorizationStatusDenied>来处理
+            return PermissionStatusDenied;
     }
 
     return PermissionStatusNotDetermined;
