@@ -55,7 +55,7 @@ extension PermissionStatusValue on PermissionStatus {
       PermissionStatus.restricted,
       PermissionStatus.undetermined,
       PermissionStatus.permanentlyDenied,
-      PermissionStatus.permanentlyLimited,
+      PermissionStatus.limited,
     ][value];
   }
 }
@@ -84,7 +84,7 @@ extension PermissionStatusGetters on PermissionStatus {
 
   /// User has authorized this application for limited photo library access.
   /// *Only supported on iOS.*
-  bool get isPermanentlyLimited => this == PermissionStatus.permanentlyLimited;
+  bool get isLimited => this == PermissionStatus.limited;
 }
 
 extension FuturePermissionStatusGetters on Future<PermissionStatus> {
@@ -112,6 +112,6 @@ extension FuturePermissionStatusGetters on Future<PermissionStatus> {
 
   /// User has authorized this application for limited photo library access.
   /// *Only supported on iOS.*
-  Future<bool> get isPermanentlyLimited async =>
-      (await this).isPermanentlyLimited;
+  Future<bool> get isLimited async =>
+      (await this).isLimited;
 }
