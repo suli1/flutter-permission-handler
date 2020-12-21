@@ -25,7 +25,7 @@ enum PermissionStatus {
 
   /// User has authorized this application for limited photo library access.
   /// *Only supported on iOS.*
-  permanentlyLimited,
+  limited,
 }
 
 extension PermissionStatusValue on PermissionStatus {
@@ -41,7 +41,7 @@ extension PermissionStatusValue on PermissionStatus {
         return 3;
       case PermissionStatus.permanentlyDenied:
         return 4;
-      case PermissionStatus.permanentlyLimited:
+      case PermissionStatus.limited:
         return 5;
       default:
         throw UnimplementedError();
