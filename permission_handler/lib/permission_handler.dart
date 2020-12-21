@@ -72,6 +72,10 @@ extension PermissionCheckShortcuts on Permission {
   /// device settings.
   /// *Only supported on Android.*
   Future<bool> get isPermanentlyDenied => status.isPermanentlyDenied;
+
+  /// User has authorized this application for limited photo library access.
+  /// *Only supported on iOS.*
+  Future<bool> get isLimited => status.isLimited;
 }
 
 /// Actions that apply only to permissions that have an associated service.
