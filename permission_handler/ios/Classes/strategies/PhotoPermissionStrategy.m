@@ -43,13 +43,15 @@
             return PermissionStatusNotDetermined;
         case PHAuthorizationStatusRestricted:
             return PermissionStatusRestricted;
+        case PHAuthorizationStatusDenied:
+            return PermissionStatusDenied;
         case PHAuthorizationStatusAuthorized:
             return PermissionStatusGranted;
-        default:// iOS14中<PHAuthorizationStatusLimited>当做<PHAuthorizationStatusDenied>来处理
-            return PermissionStatusDenied;
+        case PHAuthorizationStatusLimited:
+            return PermissionStatusLimited;
+        default:
+            return PermissionStatusNotDetermined;
     }
-
-    return PermissionStatusNotDetermined;
 }
 
 @end
