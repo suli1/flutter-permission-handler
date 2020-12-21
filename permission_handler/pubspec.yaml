@@ -19,7 +19,7 @@ dependencies:
 #  permission_handler_platform_interface: ^2.0.1
   permission_handler_platform_interface:
     git:
-      url: git://github.com/15220287527/flutter-permission-handler.git
+      url: git://github.com/suli1/flutter-permission-handler.git
       ref: permission_limit
       path: permission_handler_platform_interface
 
